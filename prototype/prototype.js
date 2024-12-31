@@ -64,3 +64,4 @@ String.prototype.trueLength = function () {
 
 anotherName.trueLength();
 "iceTea        ".trueLength();
+"GIFM        ".trueLength();
