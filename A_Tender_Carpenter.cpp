@@ -1,27 +1,44 @@
 #include <bits/stdc++.h>
+
 using namespace std;
 
 int main()
 {
     int t;
-    cin >> t; // Number of test cases
-
+    cin >> t;
     while (t--)
     {
         int n;
-        cin >> n; // Length of the array
-        vector<int> a(n);
-
+        cin >> n;
+        int a[n];
         for (int i = 0; i < n; i++)
         {
             cin >> a[i];
         }
-
-        // Sort the array to simplify stability checks
-        sort(a.begin(), a.end());
-
-        // Check if the largest triplet can form a triangle
-        if (n >= 3 && a[n - 3] + a[n - 2] > a[n - 1])
+        // sort(a, a + n);
+        bool flag = false;
+        // for (int i = 0; i < n; i++)
+        // {
+        //     cout << a[i] << " ";
+        // }
+        // cout << endl;
+        for (int i = 0; i < n - 1; i++)
+        {
+            // if (a[i] + a[i] == a[i + 1])
+            // {
+            //     cout << a[i] << " " << a[i + 1] << endl;
+            //     flag = false;
+            //     break;
+            // }
+            int mx = max(a[i], a[i + 1]);
+            int mn = min(a[i], a[i + 1]);
+            if (mn + mn > mx)
+            {
+                flag = true;
+                break;
+            }
+        }
+        if (flag)
         {
             cout << "YES" << endl;
         }
@@ -30,6 +47,5 @@ int main()
             cout << "NO" << endl;
         }
     }
-
     return 0;
 }
